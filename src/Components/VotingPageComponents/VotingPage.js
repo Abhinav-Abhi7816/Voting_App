@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Candidate from './Candidate';
 import useDataContext from './../../Contexts/DataContext';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 function VotingPage() {
     const [cData, setCdata] = useState(null);

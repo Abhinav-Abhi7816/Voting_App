@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate, NavLink } from 'react-router'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 function SignUp() {
   const [name, setName] = useState('');

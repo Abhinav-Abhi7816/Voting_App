@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router'
+import { NavLink, useNavigate } from 'react-router-dom'
 import useDataContext from './../../Contexts/DataContext';
 
 function Login() {

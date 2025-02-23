@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import VotesViewComponent from './VotesViewComponent';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import CandidatesDataComp from './CandidatesDataComp';
 import useDataContext from './../../Contexts/DataContext';

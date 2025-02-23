@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import VotingPage from "./Components/VotingPageComponents/VotingPage";
 import SignUp from "./Components/Logins/SignUp";
 import Login from "./Components/Logins/Login";
@@ -22,7 +22,7 @@ function App() {
       <Route path="admin" element={<Admin></Admin>}></Route>
     </Route>
   ),
-  { basename: "/Voting_App" })
+  { basename:"/Voting_App" })
   return (
     <div className="App">
       <DataContextProvider value={{logName,setLogName}}>

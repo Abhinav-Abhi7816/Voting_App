@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router'
+import { NavLink, useNavigate } from 'react-router-dom'
 import eLogo from './../Images/Election-commission-L.png'
 import useDataContext from './../../Contexts/DataContext'
 import { TbLogout } from "react-icons/tb";
