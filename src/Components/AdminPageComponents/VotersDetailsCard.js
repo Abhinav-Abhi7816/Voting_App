@@ -20,7 +20,7 @@ function VotersDetailsCard({voterDetailsObj}) {
                         <p className='text-wrap'>Gender : {voterDetailsObj.gender}</p>
                         <p className='text-wrap'>Aadhar : {aNo}</p>
                         <p className='text-wrap'>Voter Id : {voterDetailsObj.voterId}</p>
-                        <p className='text-wrap text-sm text-lg'>email : {voterDetailsObj.email}</p>
+                        <p className='text-wrap text-sm mdtext-lg'>email : {voterDetailsObj.email}</p>
                         {
                             (voterDetailsObj.isVoted)?<p className='text-green-600'>Voted</p>:<p className='text-red-600'>Not yet voted</p>
                         }

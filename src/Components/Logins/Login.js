@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import useDataContext from './../../Contexts/DataContext';
 
@@ -9,7 +9,7 @@ function Login() {
 
   const{setLogName}=useDataContext()
   
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function onLogin() {
     try {
@@ -18,7 +18,7 @@ function Login() {
         password: pass
       }
 
-      let response = await fetch('https://votingapp-avio.onrender.com/login', {
+      let response = await fetch('https://votingapp-whl5.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -36,8 +36,9 @@ function Login() {
       }
       
       localStorage.setItem('token',JSON.stringify(result.token));
-      localStorage.setItem('logName',JSON.stringify(result.logName));
-      setLogName(result.logName)
+      let tempName=result.logName.split(' ')[0];
+      localStorage.setItem('logName',JSON.stringify(tempName));
+      setLogName(tempName)
       if (result.message === "Admin logged in") {
         localStorage.setItem('isAdmin',JSON.stringify(true));
         navigate('/admin');

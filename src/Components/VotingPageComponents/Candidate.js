@@ -14,7 +14,7 @@ function Candidate({candidate}) {
     }
     
     try{
-      const response=await fetch('https://votingapp-avio.onrender.com/submitVote',{
+      const response=await fetch('https://votingapp-whl5.onrender.com/submitVote',{
         method:'POST',
         headers:{
           'Authorization':`Bearer ${JSON.parse(localStorage.getItem('token'))}`,

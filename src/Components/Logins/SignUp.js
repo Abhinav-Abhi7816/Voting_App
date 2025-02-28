@@ -43,7 +43,7 @@ function SignUp() {
       password:pass1,
       isVoted:false
     }
-    let response=await fetch('https://votingapp-avio.onrender.com/signUp',{
+    let response=await fetch('https://votingapp-whl5.onrender.com/signUp',{
       method:'POST',
       headers:{'Content-Type':"application/json"},
       body:JSON.stringify(obj)

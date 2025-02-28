@@ -29,7 +29,7 @@ function VotingPage() {
     useEffect(() => {
         async function getCData() {
             try {
-                const response = await fetch('https://votingapp-avio.onrender.com/candidates');
+                const response = await fetch('https://votingapp-whl5.onrender.com/candidates');
                 let result = await response.json();
     
                 setCdata(result.candidatesData)

@@ -28,7 +28,7 @@ function Admin() {
 
   async function getCanData() {
     try {
-      let response = await fetch('https://votingapp-avio.onrender.com/candidates/allData', {
+      let response = await fetch('https://votingapp-whl5.onrender.com/candidates/allData', {
         method: "GET",
         headers: { "Authorization": `Bearer ${JSON.parse(localStorage.getItem('token'))}` }
       });
@@ -53,7 +53,7 @@ function Admin() {
 
   async function getVotersDetails() {
     try {
-      let response = await fetch('https://votingapp-avio.onrender.com/votersList', {
+      let response = await fetch('https://votingapp-whl5.onrender.com/votersList', {
         method: "GET",
         headers: { "Authorization": `Bearer ${JSON.parse(localStorage.getItem('token'))}` }
       });
@@ -80,7 +80,7 @@ function Admin() {
   useEffect(() => {
     async function getVotesCount() {
       try {
-        let response = await fetch('https://votingapp-avio.onrender.com/votesCount', {
+        let response = await fetch('https://votingapp-whl5.onrender.com/votesCount', {
           method: "GET",
           headers: { "Authorization": `Bearer ${JSON.parse(localStorage.getItem('token'))}` }
         });
