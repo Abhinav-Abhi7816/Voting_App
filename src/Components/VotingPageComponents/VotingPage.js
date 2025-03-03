@@ -13,7 +13,7 @@ function VotingPage() {
         setTimeout(() => {
             if(!cData)
             {
-                setLoad('Unable to connect to internet!');
+                setLoad('Unable to connect to internet! Wait 20 sec and try again!');
             }
         }, (10000));
     },[cData])
