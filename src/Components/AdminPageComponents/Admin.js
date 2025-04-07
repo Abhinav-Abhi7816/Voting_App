@@ -12,6 +12,7 @@ function Admin() {
   const [votesArr, setVotesArr] = useState([])
   const [canDataArr, setCanDataArr] = useState([]);
   const [voterDetailsArr, setVoterDetailsArr] = useState([]);
+  const [notVotedList,SetNotVotedList]=useState([]);
   const [load,setLoad]=useState('Loading...');
   const{setLogName}=useDataContext();
 
@@ -103,11 +104,20 @@ function Admin() {
     };
     getVotesCount();
   }, [navigate,setLogName])
+  useEffect(()=>{
+    if(!voterDetailsArr)
+    {
+      return;
+    }
+    let temp=voterDetailsArr.filter((el) => !el.isVoted)
+    SetNotVotedList(temp);
+  },[voterDetailsArr])
 
   return (
     <div className='lg:pt-32 pt-20 min-h-lvh w-full'>
       <div className='flex flex-col place-items-center mx-2 my-3 md:mx-8 md:my-4  rounded-xl' style={{ boxShadow: "0px 0px 20px rgb(0,0,0,0.3)" }}>
         <div className='py-4'><h1 className='md:text-3xl text-xl font-semibold border-b-4 px-4 border-black'>Vote Count </h1></div>
+        {/* <div className='pb-4'><h1 className='md:text-xl text-xl font-semibold px-4 '>Total votes: </h1></div> */}
         <div className=' flex flex-row flex-wrap w-full justify-around mb-10'>
           {
             (!votesArr || votesArr.length === 0) ? <p className='text-xl text-center md:text-3xl  font-mono'>{load}</p> :
@@ -126,7 +136,8 @@ function Admin() {
         
         {
           (!canDataArr || canDataArr.length !== 0) ?<div className='mb-10 bg-slate-200 md:p-8 md:mx-8 p-2 mx-2 rounded-xl' >
-            <h1 className='text-center text-xl md:text-3xl mb-8 underline underline-offset-8 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Candidates Full Details:</h1>
+            <h1 className='text-center text-xl md:text-3xl md:mb-8 mb-2 underline underline-offset-8 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Candidates Full Details:</h1>
+            <h1 className='text-center md:text-2xl text-lg md:mb-8 mb-4 text-purple-500 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Total Candidates : {canDataArr.length }</h1>
             <div className='flex justify-around flex-wrap gap-5 md:gap-10 '>
             {canDataArr.map((el,i)=><CandidatesDataComp key={i} canObj={el}></CandidatesDataComp>)}
             </div>
@@ -142,7 +153,12 @@ function Admin() {
         </div>
         {
           (!voterDetailsArr || voterDetailsArr.length !== 0) ?<div className='mb-10 bg-slate-200 md:p-8 p-3 md:mx-8 mx-2 rounded-xl' >
-            <h1 className='text-center md:text-3xl text-xl mb-8 underline underline-offset-8 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Voters Full Details:</h1>
+            <h1 className='text-center md:text-3xl text-xl md:mb-5 mb-2 underline underline-offset-8  ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Voters Full Details:</h1>
+            <div className='flex justify-center md:flex-row flex-col md:gap-20 gap-1 mb-4'>
+            <h1 className='text-center md:text-2xl text-lg md:mb-8 text-purple-500 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Total Voters : {voterDetailsArr.length }</h1>
+            <h1 className='text-center md:text-2xl text-lg md:mb-8 text-green-600 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Voted : {voterDetailsArr.length-notVotedList.length }</h1>
+            <h1 className='text-center md:text-2xl text-lg md:mb-8 text-red-500 ' style={{textShadow:"0px 0px 20px rgb(0,0,0,0.3)"}}>Not Voted : {notVotedList.length }</h1>
+            </div>
             <div className='flex justify-around flex-wrap md:gap-10 gap-5 '>
             {voterDetailsArr.map((el,i)=><VotersDetailsCard key={i} voterDetailsObj={el}></VotersDetailsCard>)}
             </div>
