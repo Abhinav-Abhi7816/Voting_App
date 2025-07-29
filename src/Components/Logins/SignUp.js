@@ -30,7 +30,23 @@ function SignUp() {
       alert('Passwords mismatch!');
       return;
     }
-
+    if(adNo.length!==12)
+    {
+      alert("Aadhar number must be 12 digits!");
+      return;
+    }
+    //validate email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+      alert("Invalid email format!");
+      return;
+    }
+    //validate mobile number
+    const mobilePattern = /^[0-9]{10}$/;
+    if (!mobilePattern.test(mobile)) {
+      alert("Invalid mobile number format!");
+      return;
+    }
     const obj={
       name:name,
       age:age,
